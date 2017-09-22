@@ -1,0 +1,38 @@
+\documentclass{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{marypoppins}
+
+\usetikzlibrary{calc,decorations.markings}
+
+\newcommand\TestF{\begin{frame}test\end{frame}}
+\newcommand\vTestF{\TestF\TestF\TestF\TestF\TestF}
+\newcommand\xxTestF{\vTestF\vTestF\vTestF\vTestF}
+\def\factor{0.5}
+\setbeamertemplate{background canvas}{\resizebox{\paperwidth}{\paperheight}{\london}}
+
+\setbeamertemplate{background}{%
+\begin{tikzpicture}[remember picture,overlay, decoration={markings, mark=at position \thepage/40 with { \node {\scalebox{.1}{\marypoppins}}; }} ]
+\path[postaction=decorate]
+  ($(current page.north west)+(-1,0)$) to[out=-30,in=90] 
+  (current page.center) to[out=-90,in=180,looseness=6,distance=4cm]
+  (current page.center) to[out=0,in=160]
+  (current page.south east);
+\end{tikzpicture}%
+}
+
+\title{Code snippets with \TeX\ and friends}
+\author{Paulo R.\ M.\ Cereda}
+\date{October 3, 2015}
+\institute{UK-TUG speaker meeting}
+
+\begin{document}
+
+\maketitle
+
+\xxTestF\xxTestF
+
+\end{document}
+
+
